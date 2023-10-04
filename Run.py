@@ -2,8 +2,8 @@
 # The lower left point in grid cells is the 1st.
 from os import system as ossys
 from build.Network import net as NETWORK
-from build.OGSTI import expectation as OGST_STAGEI
-from build.OGSTII import sparsification as OGST_STAGEII
+from build.HGSTI import expectation as HGST_STAGEI
+from build.HGSTII import sparsification as HGST_STAGEII
 
 
 # Compilation ====================================
@@ -19,7 +19,7 @@ n = 10000
 # number of edges
 m = 252923
 # sparsification ratio
-scaling = 0.6
+scaling = 0.5
 # by default, 0.01 for an earlier convergence
 tolerance = 0.01
 # '2' for degree, '3' for 'triangle', and 'w' for 'wedge'
@@ -43,12 +43,12 @@ NETWORK(inpnet,
         int(n),
         int(m))
 # core
-OGST_STAGEI(inpnet,
+HGST_STAGEI(inpnet,
             int(n),
             int(m),
             scaling,
             suffix)
-OGST_STAGEII(inpnet,
+HGST_STAGEII(inpnet,
              int(n),
              int(m),
              scaling,
